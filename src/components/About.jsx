@@ -50,7 +50,7 @@ const About = () => {
             a Computer Science student with a strong academic background (CGPA: 9.64/10.0).
           </p>
           <p className="text-lg text-gray-300">
-            I have hands-on experience in web development, full-stack projects, and cloud technologies.
+            I have hands-on experience in web development, full-stack projects.
             I've built impactful applications such as Library Management and Hotel Booking systems.
           </p>
           <p className="text-lg text-gray-300">

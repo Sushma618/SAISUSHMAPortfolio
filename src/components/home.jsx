@@ -1,118 +1,82 @@
 import React from "react";
 import avatar from "../assets/me.jpg";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaDownload } from "react-icons/fa";
+import { Link } from "react-scroll";
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const Home = () => {
-  const socialLinks = [
-    { icon: FaGithub, url: "https://github.com/yourusername", label: "GitHub" },
-    { icon: FaLinkedin, url: "https://linkedin.com/in/yourusername", label: "LinkedIn" }
-  ];
-
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-transparent animate-gradient" />
-      
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute bg-purple-500/20 rounded-full animate-float"
-            style={{
-              width: Math.random() * 10 + 5 + "px",
-              height: Math.random() * 10 + 5 + "px",
-              left: Math.random() * 100 + "%",
-              top: Math.random() * 100 + "%",
-              animationDelay: Math.random() * 5 + "s",
-              animationDuration: Math.random() * 10 + 10 + "s"
-            }}
-          />
-        ))}
-      </div>
-      
-      <motion.img
-        src={avatar}
-        className="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-4 
-                   border-purple-500/50 shadow-xl relative z-10 hover:border-purple-400 
-                   transition-all duration-300"
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
-      />
-      
-      <motion.div
-        className="text-center mt-8 relative z-10 px-4"
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 0.5 }}
-      >
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 gradient-text">
-          THOKALA SAI SUSHMA
-        </h1>
-        <motion.span 
-          className="text-2xl md:text-3xl font-medium text-purple-400 block mb-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-        >
-          Aspiring Software Engineer
-        </motion.span>
-        
-        <motion.p 
-          className="text-gray-300 text-lg mt-6 mb-8 max-w-2xl mx-auto"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-        >
-          Passionate about creating innovative solutions with expertise in 
-          <span className="text-purple-400"> Full Stack Development</span>,
-          <span className="text-purple-400"> Cloud Technologies</span>, and
-          <span className="text-purple-400"> Problem Solving</span>.
-        </motion.p>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <motion.a
-            href="/SAISUSHMATHOKALA_PROFILE.pdf"
-            download
-            className="button-primary flex items-center gap-2 group"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+    <div id="home" className="min-h-screen flex flex-col justify-center items-center py-20">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
+          {/* Profile Image Section */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="relative"
           >
-            <FaDownload className="group-hover:animate-bounce" />
-            Download Resume
-          </motion.a>
+            {/* Profile container with border */}
+            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-1 bg-gradient-to-r from-purple-500 via-purple-400 to-pink-500">
+              <div className="relative w-full h-full rounded-full overflow-hidden">
+                <img
+                  src={avatar}
+                  alt="Profile"
+                  className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                  style={{
+                    objectPosition: "center 20%"
+                  }}
+                />
+              </div>
+            </div>
+          </motion.div>
 
-          <div className="flex gap-4">
-            {socialLinks.map((link, index) => (
-              <motion.a
-                key={index}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-gray-800/50 rounded-full hover:bg-purple-600/20 
-                         transition-all duration-300"
-                whileHover={{ y: -5 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 2.5 + index * 0.2 }}
-              >
-                <link.icon className="w-6 h-6 text-purple-400" />
-              </motion.a>
-            ))}
-          </div>
-        </div>
-      </motion.div>
+          {/* Content Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="text-center lg:text-left max-w-xl"
+          >
+            <h2 className="text-xl text-purple-400 font-medium mb-4">Hello, I'm</h2>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="gradient-text animate-gradient">Thokala Sai Sushma</span>
+            </h1>
+            <p className="text-xl text-gray-300 mb-8">
+              Full Stack Developer & UI/UX Designer
+            </p>
+            <p className="text-gray-400 mb-8">
+              Passionate about creating beautiful, functional, and user-centered digital experiences.
+            </p>
+            
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+              <Link to="contact" smooth={true} duration={500} offset={-70}>
+                <button className="button-primary">
+                  Get In Touch
+                </button>
+              </Link>
+              <a href="/path-to-cv" className="glass-card px-6 py-3 rounded-full font-medium 
+                                             hover:transform hover:-translate-y-1">
+                Download CV
+              </a>
+            </div>
 
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 3, duration: 1, repeat: Infinity, repeatType: "reverse" }}
-      >
-        <div className="w-6 h-10 border-2 border-purple-400 rounded-full flex justify-center">
-          <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce mt-2" />
+            {/* Social Links */}
+            <div className="flex gap-6 mt-8 justify-center lg:justify-start">
+              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+                <FaGithub size={24} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+                <FaLinkedin size={24} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+                <FaEnvelope size={24} />
+              </a>
+            </div>
+          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

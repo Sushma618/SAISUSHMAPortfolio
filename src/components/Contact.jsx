@@ -1,95 +1,149 @@
-import React from 'react';
+import React from "react";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 const Contact = () => {
-    const [ref, inView] = useInView({
-        threshold: 0.1,
-        triggerOnce: true
-    });
-
     const contactInfo = [
-        { icon: FaPhone, title: "Phone", value: "7995689429" },
-        { icon: FaEnvelope, title: "Email", value: "2200030339cseh@gmail.com" },
-        { icon: FaMapMarkerAlt, title: "Location", value: "AP, INDIA" }
+        {
+            icon: <FaPhone />,
+            title: "Phone",
+            value: "+91 7995689429",
+            link: "tel:+917995689429"
+        },
+        {
+            icon: <FaEnvelope />,
+            title: "Email",
+            value: "2200030339cseh@gmail.com",
+            link: "mailto:2200030339cseh@gmail.com"
+        },
+        {
+            icon: <FaMapMarkerAlt />,
+            title: "Location",
+            value: "Andhra Pradesh, India",
+            link: "#"
+        }
+    ];
+
+    const socialLinks = [
+        { icon: <FaGithub />, link: "#", label: "GitHub" },
+        { icon: <FaLinkedin />, link: "#", label: "LinkedIn" },
+        { icon: <FaEnvelope />, link: "mailto:2200030339cseh@gmail.com", label: "Email" }
     ];
 
     return (
-        <div id="Contact" ref={ref} className="section-container">
-            <motion.h2 
-                className="section-title"
+        <div id="contact" className="section-container">
+            <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="max-w-7xl mx-auto"
             >
-                Get In Touch
-            </motion.h2>
+                <h2 className="section-title">Get In Touch</h2>
+                <p className="text-gray-400 text-center max-w-2xl mx-auto mb-12">
+                    I'm currently open to new opportunities and collaborations. 
+                    Feel free to reach out if you'd like to connect!
+                </p>
 
-            <div className="grid md:grid-cols-2 gap-12 mt-12">
-                <motion.div 
-                    className="space-y-8"
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                >
-                    {contactInfo.map((item, index) => (
-                        <div key={index} className="flex items-center space-x-4 group">
-                            <div className="bg-purple-600/20 p-4 rounded-full 
-                                          group-hover:bg-purple-600 transition-colors duration-300">
-                                <item.icon className="w-6 h-6 text-purple-400 
-                                                    group-hover:text-white transition-colors duration-300" />
-                            </div>
-                            <div>
-                                <h3 className="text-lg font-medium text-purple-400">{item.title}</h3>
-                                <p className="text-gray-300">{item.value}</p>
-                            </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    {/* Contact Information */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="space-y-6"
+                    >
+                        {contactInfo.map((info, index) => (
+                            <a
+                                key={index}
+                                href={info.link}
+                                className="flex items-center space-x-4 p-4 rounded-lg bg-gray-800/50
+                                         hover:bg-gray-700/50 transition-all duration-300 group"
+                            >
+                                <div className="bg-purple-500/20 p-4 rounded-lg 
+                                            group-hover:bg-purple-500/30 transition-colors">
+                                    <div className="text-purple-400 w-6 h-6">
+                                        {info.icon}
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-medium text-purple-400">{info.title}</h3>
+                                    <p className="text-gray-300">{info.value}</p>
+                                </div>
+                            </a>
+                        ))}
+                    </motion.div>
+
+                    {/* Contact Form */}
+                    <motion.form
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="space-y-6"
+                    >
+                        <div>
+                            <input
+                                type="text"
+                                placeholder="Your Name"
+                                className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-700
+                                         focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500
+                                         text-gray-300 placeholder-gray-500"
+                            />
                         </div>
-                    ))}
-                </motion.div>
-
-                <motion.div 
-                    className="mt-8 md:mt-0"
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                >
-                    <form className="space-y-6">
-                        <input 
-                            type="text" 
-                            placeholder="Your Name"
-                            className="w-full p-3 bg-gray-800/50 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none"
-                        />
-                        <input 
-                            type="email" 
-                            placeholder="Your Email"
-                            className="w-full p-3 bg-gray-800/50 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none"
-                        />
-                        <textarea 
-                            rows="4"
-                            placeholder="Your Message"
-                            className="w-full p-3 bg-gray-800/50 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none"
-                        ></textarea>
-                        <button className="button-primary w-full">Send Message</button>
-                    </form>
-                </motion.div>
-            </div>
-
-            <motion.div 
-                className="mt-20 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4"
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.6 }}
-            >
-                <p className="text-gray-400">© 2024 Sai Sushma. All rights reserved.</p>
-                <div className="flex space-x-4">
-                    <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                        <FaLinkedin className="w-6 h-6" />
-                    </a>
-                    <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                        <FaGithub className="w-6 h-6" />
-                    </a>
+                        <div>
+                            <input
+                                type="email"
+                                placeholder="Your Email"
+                                className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-700
+                                         focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500
+                                         text-gray-300 placeholder-gray-500"
+                            />
+                        </div>
+                        <div>
+                            <textarea
+                                rows="4"
+                                placeholder="Your Message"
+                                className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-700
+                                         focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500
+                                         text-gray-300 placeholder-gray-500"
+                            ></textarea>
+                        </div>
+                        <button
+                            type="submit"
+                            className="w-full px-6 py-3 rounded-lg bg-purple-500 text-white font-medium
+                                     hover:bg-purple-600 transition-colors duration-300"
+                        >
+                            Send Message
+                        </button>
+                    </motion.form>
                 </div>
+
+                {/* Social Links */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    className="mt-16 pt-8 border-t border-gray-800"
+                >
+                    <div className="flex justify-center space-x-6">
+                        {socialLinks.map((social, index) => (
+                            <a
+                                key={index}
+                                href={social.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                                aria-label={social.label}
+                            >
+                                <div className="w-6 h-6">
+                                    {social.icon}
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+                    <p className="text-center text-gray-500 mt-4">
+                        © 2024 Thokala Sai Sushma. All rights reserved.
+                    </p>
+                </motion.div>
             </motion.div>
         </div>
     );

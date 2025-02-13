@@ -1,17 +1,16 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import ProjectsImage1 from "../assets/me.jpg";
-import ProjectsImage2 from "../assets/Project2.jpg";
-import ProjectsImage3 from "../assets/Project3.jpg";
+import jfsd from "../assets/jfsd.png";
+import ep from "../assets/ep.jpeg";
 
 const Projects = () => {
     const projects = [
         {
             id: 1,
-            title: "GradeMate - Assignment Management System",
+            title: "GradeMate - Online Assignment Submission and Grading System",
             description: "A comprehensive web platform built with Spring Boot that streamlines academic workflows through digital assignment submissions, automated grading, and interactive feedback systems.",
-            image: ProjectsImage1,
+            image: jfsd,
             technologies: ["JSP", "Spring Boot", "MySQL"],
             githubLink: "https://github.com/Sushma618/sdp_grademate.git",
             liveLink: "#"
@@ -19,9 +18,9 @@ const Projects = () => {
         {
             id: 2,
             title: "Library Management System",
-            description: "A comprehensive library management solution built with React and Node.js, featuring real-time book tracking and user management.",
-            image: ProjectsImage2,
-            technologies: ["React", "Node.js", "MongoDB", "Express"],
+            description: "A web application developed to manage library operations, featuring a responsive frontend built with JSP and JSF, and backend processing using JPA and EJB with MySQL integration.",
+            image: ep,
+            technologies: ["JSP", "JSF", "JPA", "EJB", "MySQL"],
             githubLink: "#",
             liveLink: "#"
         }
@@ -86,14 +85,7 @@ const Projects = () => {
                                     >
                                         <FaGithub size={20} />
                                     </a>
-                                    <a 
-                                        href={project.liveLink}
-                                        className="text-gray-400 hover:text-purple-400 transition-colors"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <FaExternalLinkAlt size={20} />
-                                    </a>
+                                   
                                 </div>
                             </div>
                         </motion.div>

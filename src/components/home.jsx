@@ -40,39 +40,29 @@ const Home = () => {
           >
             <h2 className="text-xl text-purple-400 font-medium mb-4">Hello, I'm</h2>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="gradient-text animate-gradient">Thokala Sai Sushma</span>
+              <span className="gradient-text animate-gradient">THOKALA SAI SUSHMA</span>
             </h1>
             <p className="text-xl text-gray-300 mb-8">
-              Full Stack Developer & UI/UX Designer
+               Computer Science Student
             </p>
             <p className="text-gray-400 mb-8">
               Passionate about creating beautiful, functional, and user-centered digital experiences.
             </p>
             
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-              <Link to="contact" smooth={true} duration={500} offset={-70}>
-                <button className="button-primary">
-                  Get In Touch
-                </button>
-              </Link>
-              <a href="/path-to-cv" className="glass-card px-6 py-3 rounded-full font-medium 
-                                             hover:transform hover:-translate-y-1">
-                Download CV
-              </a>
-            </div>
+            
 
             {/* Social Links */}
             <div className="flex gap-6 mt-8 justify-center lg:justify-start">
-              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+              <a href="https://github.com/Sushma618" className="text-gray-400 hover:text-purple-400 transition-colors">
                 <FaGithub size={24} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+              <a href="https://www.linkedin.com/in/thokala-sai-sushma-411242255/">
                 <FaLinkedin size={24} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                <FaEnvelope size={24} />
-              </a>
+              <a href="mailto:2200030339cseh@gmail.com" className="text-gray-400 hover:text-purple-400 transition-colors">
+  <FaEnvelope size={24} />
+</a>
+
             </div>
           </motion.div>
         </div>

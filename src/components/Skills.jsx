@@ -18,9 +18,9 @@ const Skills = () => {
     {
       title: "Backend Development",
       skills: [
-        { name: "Node.js", icon: <FaNode className="text-[#339933]" /> },
+     
         { name: "Java", icon: <FaJava className="text-[#007396]" /> },
-        { name: "Python", icon: <FaPython className="text-[#3776AB]" /> },
+        
         { name: "Spring Boot", icon: <SiSpringboot className="text-[#6DB33F]" /> },
       ]
     },
@@ -93,4 +93,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default Skills; 

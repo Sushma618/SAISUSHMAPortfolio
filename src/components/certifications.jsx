@@ -1,6 +1,10 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FaAward, FaExternalLinkAlt } from 'react-icons/fa';
+import React from 'react'; 
+import { motion } from 'framer-motion'; 
+import { FaExternalLinkAlt } from 'react-icons/fa'; 
+import aws from "../assets/aws.png"; 
+import redhat from "../assets/redhat.png"; 
+import nptel from "../assets/nptel.png"; 
+import salesforce from "../assets/salesforce.png";
 
 const Certifications = () => {
     const certifications = [
@@ -8,33 +12,29 @@ const Certifications = () => {
             title: "AWS Certified Cloud Practitioner",
             issuer: "Amazon Web Services",
             date: "2023",
-            description: "Comprehensive understanding of AWS Cloud concepts, services, and deployment models.",
-            credentialLink: "#",
-            skills: ["Cloud Computing", "AWS Services", "Security"]
+            credentialLink: "https://acrobat.adobe.com/id/urn:aaid:sc:AP:7f6c0192-1e9f-4dc2-a0c0-cac50c181b40",
+            avatar: aws
         },
         {
-            title: "NPTEL Certification in Java",
-            issuer: "IIT Kharagpur",
+            title: "NPTEL Certification in Software Testing",
+            issuer: "NPTEL",
             date: "2023",
-            description: "Advanced Java programming concepts and application development fundamentals.",
-            credentialLink: "#",
-            skills: ["Java", "OOP", "Data Structures"]
+            credentialLink: "https://1drv.ms/b/c/198f50e3de9512aa/EchNjO1MRmVPr83ENsBorEkB5zMBtrvqL2c_y3r47iEjpA",
+            avatar: nptel
         },
         {
             title: "RedHat Certification",
             issuer: "Red Hat",
             date: "2023",
-            description: "Enterprise Linux system administration and configuration management.",
-            credentialLink: "#",
-            skills: ["Linux", "System Admin", "Shell Scripting"]
+            credentialLink: "https://www.credly.com/badges/82a7c0c9-13c5-4f9c-8f7d-05448717a25f/public_url",
+            avatar: redhat
         },
         {
             title: "Salesforce Certification",
             issuer: "Salesforce",
             date: "2023",
-            description: "CRM platform development and customization expertise.",
-            credentialLink: "#",
-            skills: ["Salesforce", "Apex", "Lightning"]
+            credentialLink: "https://1drv.ms/b/c/198f50e3de9512aa/EeiZ8UylI_pKn5aGm-lelmUBBV9IxdplSZ9udM3D8Cllyw",
+            avatar: salesforce
         }
     ];
 
@@ -58,19 +58,18 @@ const Certifications = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="bg-gray-800/50 rounded-xl p-6 hover:shadow-xl hover:shadow-purple-500/10 
-                                     transition-all duration-300 group"
+                            className="bg-gray-800/50 rounded-xl p-6 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300 group"
                         >
                             <div className="flex items-start gap-4">
-                                <div className="bg-purple-500/20 p-3 rounded-lg group-hover:bg-purple-500/30 transition-colors">
-                                    <FaAward className="text-purple-400 w-6 h-6" />
+                                <div className="w-12 h-12 rounded-full overflow-hidden">
+                                    <img src={cert.avatar} alt={`${cert.title} logo`} className="w-full h-full object-cover" />
                                 </div>
                                 <div className="flex-1">
                                     <div className="flex justify-between items-start">
                                         <h3 className="text-lg font-bold text-white group-hover:text-purple-400 transition-colors">
                                             {cert.title}
                                         </h3>
-                                        <a 
+                                        <a
                                             href={cert.credentialLink}
                                             className="text-gray-400 hover:text-purple-400 transition-colors"
                                             target="_blank"
@@ -80,17 +79,6 @@ const Certifications = () => {
                                         </a>
                                     </div>
                                     <p className="text-purple-400 text-sm mb-2">{cert.issuer} • {cert.date}</p>
-                                    <p className="text-gray-400 text-sm mb-4">{cert.description}</p>
-                                    <div className="flex flex-wrap gap-2">
-                                        {cert.skills.map((skill, skillIndex) => (
-                                            <span 
-                                                key={skillIndex}
-                                                className="text-xs px-2 py-1 bg-purple-500/10 text-purple-400 rounded-full"
-                                            >
-                                                {skill}
-                                            </span>
-                                        ))}
-                                    </div>
                                 </div>
                             </div>
                         </motion.div>

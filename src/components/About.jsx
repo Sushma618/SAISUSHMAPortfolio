@@ -21,14 +21,18 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="relative w-64 h-64 md:w-96 md:h-96"
         >
-          <div className="absolute inset-0 rounded-full bg-purple-500/20 animate-pulse-border" />
-          <img
-            src={aboutImg}
-            alt="Professional headshot"
-            className="relative w-full h-full object-cover rounded-full 
-                     hover:scale-105 transition-transform duration-300
-                     border-2 border-purple-500/50"
-          />
+          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-1 bg-gradient-to-r from-purple-500 via-purple-400 to-pink-500">
+            <div className="relative w-full h-full rounded-full overflow-hidden">
+              <img
+                src={aboutImg}
+                alt="Profile"
+                className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                style={{
+                  objectPosition: "center 20%"
+                }}
+              />
+            </div>
+          </div>
         </motion.div>
 
         <motion.div 
@@ -38,33 +42,26 @@ const About = () => {
           className="flex-1"
         >
           <p className="text-gray-300 leading-relaxed mb-8">
-            As a Computer Science student with a CGPA of 9.64/10.0, I combine strong academic foundations 
-            with hands-on development experience. I specialize in full-stack development using React, 
-            Node.js, and cloud technologies, having successfully delivered projects like Library Management 
-            and Hotel Booking systems. My expertise extends from frontend development to database design, 
-            with a focus on creating scalable and user-friendly applications.
+            I am a Computer Science student with a CGPA of 9.64/10.0, proficient in Java with a strong foundation in 
+            object-oriented programming, data structures, and algorithms. I have hands-on experience with Spring Boot, 
+            web technologies, and cloud platforms like AWS. My expertise spans backend development, database management, 
+            and front-end frameworks such as React.
           </p>
           
           <p className="text-gray-300 leading-relaxed mb-8">
-            I'm passionate about solving complex technical challenges through clean, efficient code and 
-            innovative solutions. Currently seeking opportunities to contribute to meaningful projects 
-            while expanding my skills in emerging technologies.
+            I have successfully developed and contributed to projects such as an Online Assignment Submission System, 
+            and a Library Management System. Passionate about problem-solving and 
+            learning emerging technologies, I continuously seek opportunities to apply my skills and contribute to 
+            innovative solutions.
           </p>
 
           <div className="flex flex-wrap gap-4 mt-6">
             <a 
-              href="#contact" 
-              className="button-primary"
-            >
-              Get in Touch
-            </a>
-            <a 
-              href="/path-to-resume" 
-              className="glass-card px-6 py-3 rounded-full font-medium 
-                       hover:transform hover:-translate-y-1"
+              href="https://1drv.ms/b/c/198f50e3de9512aa/EXv3Fun0WAtJro8VZnZF6O0BQBA1TYwA2zJYW_g_WSZJUg?e=jtAL8EView" 
+              className="glass-card px-6 py-3 rounded-full font-medium bg-purple-400 text-white border border-purple-400 hover:bg-purple-500 transform hover:-translate-y-1"
               target="_blank"
               rel="noopener noreferrer"
-            >
+            > 
               View Resume
             </a>
           </div>

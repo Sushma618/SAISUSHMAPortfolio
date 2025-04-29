@@ -31,6 +31,7 @@ export default {
           800: '#1e293b',
           900: '#0f172a',
         }
+        
       },
       animation: {
         'fade-in': 'fadeIn 1s ease-in forwards',
